@@ -1,0 +1,453 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+    user-select: none;
+    cursor: default;
+}
+
+#pet-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+#pet {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* SVG 宠物样式 */
+.pet-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+/* 宠物特定动画 */
+.pet-cat .tail {
+    animation: cat-tail-wag 2s ease-in-out infinite;
+}
+
+.pet-dog .tail {
+    animation: dog-tail-wag 0.8s ease-in-out infinite;
+}
+
+.pet-dog .tongue {
+    animation: pant 1.5s ease-in-out infinite;
+}
+
+.pet-rabbit .ear {
+    animation: rabbit-ear-twitch 3s ease-in-out infinite;
+}
+
+.pet-sheep .wool {
+    animation: sheep-wool-bounce 2.5s ease-in-out infinite;
+}
+
+.pet-sheep .ear {
+    animation: sheep-ear-wiggle 3s ease-in-out infinite;
+}
+
+.pet-owl .ear-tuft {
+    animation: owl-tuft-sway 2s ease-in-out infinite;
+}
+
+.pet-owl .wing {
+    animation: owl-wing-flap 3s ease-in-out infinite;
+}
+
+.pet-owl .eye-iris {
+    animation: owl-eye-track 4s ease-in-out infinite;
+}
+
+/* 眨眼动画 */
+.pet-svg .eye {
+    animation: blink 4s ease-in-out infinite;
+}
+
+/* 胡须动画 */
+.pet-cat .whisker, .pet-rabbit .whisker {
+    animation: whisker-twitch 2.5s ease-in-out infinite;
+}
+
+/* 动画关键帧 */
+@keyframes cat-tail-wag {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+@keyframes dog-tail-wag {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(20deg); }
+}
+
+@keyframes rabbit-ear-twitch {
+    0%, 90%, 100% { transform: rotate(0deg); }
+    5%, 15% { transform: rotate(-5deg); }
+}
+
+@keyframes pant {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.8); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes whisker-twitch {
+    0%, 95%, 100% { transform: translateX(0); }
+    2%, 7% { transform: translateX(1px); }
+}
+
+/* 动画状态 */
+.pet-idle {
+    animation: idle 3s ease-in-out infinite;
+}
+
+.pet-happy {
+    animation: bounce 0.5s ease-in-out 3;
+}
+
+.pet-sleeping .eye {
+    transform: scaleY(0.1);
+}
+
+.pet-sleeping .pet-svg {
+    animation: sleep-breathe 2s ease-in-out infinite;
+}
+
+.pet-eating {
+    animation: eat 0.8s ease-in-out 3;
+}
+
+.pet-eating .mouth {
+    animation: chew 0.3s ease-in-out infinite;
+}
+
+/* 心情相关的动画 */
+.pet-happy .eye-shine {
+    animation: sparkle 1s ease-in-out infinite;
+}
+
+.pet-bored .pet-svg {
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)) grayscale(0.3);
+}
+
+.pet-hungry .pet-body-svg, .pet-hungry .pet-head {
+    animation: hungry-shake 0.1s ease-in-out infinite;
+}
+
+/* 动画关键帧 */
+@keyframes idle {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.02); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-15px); }
+}
+
+@keyframes eat {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+}
+
+@keyframes sleep-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes chew {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+@keyframes hungry-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-1px); }
+    75% { transform: translateX(1px); }
+}
+
+/* 宠物特定动画 */
+@keyframes cat-ear-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-8deg); }
+}
+
+@keyframes dog-tail-wag-fast {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(30deg); }
+}
+
+@keyframes rabbit-hop {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes cat-lick {
+    0%, 100% { stroke-width: 2; }
+    50% { stroke-width: 3; }
+}
+
+@keyframes dog-eat {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.3); }
+}
+
+@keyframes rabbit-chew {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes stretch {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.2); }
+}
+
+@keyframes groom {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+@keyframes pant-fast {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.6); }
+}
+
+@keyframes rabbit-ear-twitch-fast {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-10deg); }
+}
+
+@keyframes nose-wiggle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes look-around {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+/* 小羊动画 */
+@keyframes sheep-wool-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes sheep-ear-wiggle {
+    0%, 90%, 100% { transform: rotate(0deg); }
+    5%, 15% { transform: rotate(-8deg); }
+}
+
+@keyframes sheep-hop {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes sheep-chew {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
+}
+
+/* 猫头鹰动画 */
+@keyframes owl-tuft-sway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+}
+
+@keyframes owl-wing-flap {
+    0%, 90%, 100% { transform: rotate(0deg); }
+    5% { transform: rotate(-5deg); }
+    10% { transform: rotate(5deg); }
+}
+
+@keyframes owl-eye-track {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-1px); }
+    75% { transform: translateX(1px); }
+}
+
+@keyframes owl-head-turn {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+@keyframes owl-blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes sheep-bleat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* 右键菜单 */
+.context-menu {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 8px 0;
+    min-width: 120px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.context-menu.hidden {
+    display: none;
+}
+
+.menu-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* 拖拽状态 */
+.dragging {
+    cursor: grabbing !important;
+    transform: translate(-50%, -50%) scale(1.1) !important;
+    animation: none !important;
+}
+
+/* 状态显示 */
+.status-display {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 15px;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+.status-display.hidden {
+    display: none;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.status-item:last-child {
+    margin-bottom: 0;
+}
+
+.status-label {
+    min-width: 40px;
+    font-weight: 600;
+    color: #555;
+}
+
+.status-bar {
+    flex: 1;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin: 0 8px;
+    overflow: hidden;
+}
+
+.status-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.energy-fill {
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+}
+
+.hunger-fill {
+    background: linear-gradient(90deg, #FF9800, #FF5722);
+}
+
+.status-value {
+    min-width: 25px;
+    text-align: right;
+    font-weight: 600;
+    color: #333;
+}
+
+.mood-indicator {
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+/* 天气显示 */
+.weather-display {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    font-size: 12px;
+    z-index: 998;
+}
+
+.weather-display.hidden {
+    display: none;
+}
+
+.weather-icon {
+    font-size: 16px;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.weather-temp {
+    font-weight: 600;
+    color: #333;
+}
+
+.weather-desc {
+    color: #666;
+    font-size: 10px;
+}

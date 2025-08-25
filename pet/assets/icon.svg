@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="128" cy="128" r="120" fill="#FFE4E1" stroke="#FF69B4" stroke-width="4"/>
+  
+  <!-- 宠物身体 -->
+  <ellipse cx="128" cy="160" rx="60" ry="45" fill="#FFA07A"/>
+  
+  <!-- 宠物头部 -->
+  <circle cx="128" cy="100" r="50" fill="#FFB6C1"/>
+  
+  <!-- 耳朵 -->
+  <ellipse cx="105" cy="70" rx="15" ry="25" fill="#FF69B4" transform="rotate(-30 105 70)"/>
+  <ellipse cx="151" cy="70" rx="15" ry="25" fill="#FF69B4" transform="rotate(30 151 70)"/>
+  
+  <!-- 眼睛 -->
+  <circle cx="115" cy="90" r="8" fill="#000"/>
+  <circle cx="141" cy="90" r="8" fill="#000"/>
+  <circle cx="117" cy="88" r="3" fill="#FFF"/>
+  <circle cx="143" cy="88" r="3" fill="#FFF"/>
+  
+  <!-- 鼻子 -->
+  <ellipse cx="128" cy="105" rx="4" ry="3" fill="#FF1493"/>
+  
+  <!-- 嘴巴 -->
+  <path d="M 120 115 Q 128 125 136 115" stroke="#FF1493" stroke-width="2" fill="none"/>
+  
+  <!-- 腮红 -->
+  <circle cx="95" cy="100" r="8" fill="#FFB6C1" opacity="0.6"/>
+  <circle cx="161" cy="100" r="8" fill="#FFB6C1" opacity="0.6"/>
+  
+  <!-- 装饰性心形 -->
+  <path d="M 200 50 C 200 40, 190 35, 185 40 C 180 35, 170 40, 170 50 C 170 60, 185 70, 185 70 C 185 70, 200 60, 200 50 Z" fill="#FF69B4" opacity="0.7"/>
+  
+  <!-- 文字 -->
+  <text x="128" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#FF69B4">桌面宠物</text>
+</svg>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物设置</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .settings-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .setting-group {
+            margin-bottom: 25px;
+        }
+        
+        .setting-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .setting-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .setting-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .pet-type-selector {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .pet-option {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #e0e0e0;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .pet-option.selected {
+            border-color: #667eea;
+            transform: scale(1.1);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .slider {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: #e0e0e0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+        
+        .slider-value {
+            min-width: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <h1>🐾 宠物设置</h1>
+        
+        <div class="setting-group">
+            <label class="setting-label">宠物名字</label>
+            <input type="text" id="petName" class="setting-input" placeholder="给你的宠物起个名字">
+        </div>
+        
+        <div class="setting-group">
+            <label class="setting-label">宠物类型</label>
+            <div class="pet-type-selector">
+                <div class="pet-option" data-type="cat">🐱</div>
+                <div class="pet-option" data-type="dog">🐶</div>
+                <div class="pet-option" data-type="rabbit">🐰</div>
+                <div class="pet-option" data-type="sheep">🐑</div>
+                <div class="pet-option" data-type="owl">🦉</div>
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <label class="setting-label">音量</label>
+            <div class="slider-container">
+                <input type="range" id="volumeSlider" class="slider" min="0" max="100" value="50">
+                <span class="slider-value" id="volumeValue">50</span>
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <label class="setting-label">提醒间隔 (分钟)</label>
+            <div class="slider-container">
+                <input type="range" id="reminderInterval" class="slider" min="30" max="180" value="120">
+                <span class="slider-value" id="reminderValue">120</span>
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <label class="setting-label">
+                <input type="checkbox" id="autoStart"> 开机自启动
+            </label>
+        </div>
+        
+        <div class="setting-group">
+            <label class="setting-label">
+                <input type="checkbox" id="soundEnabled" checked> 启用音效
+            </label>
+        </div>
+
+        <div class="setting-group">
+            <label class="setting-label">
+                <input type="checkbox" id="weatherEnabled" checked> 启用天气同步
+            </label>
+        </div>
+
+        <div class="setting-group">
+            <label class="setting-label">城市</label>
+            <input type="text" id="cityInput" class="setting-input" placeholder="输入城市名称 (如: Beijing)">
+        </div>
+
+        <div class="setting-group">
+            <label class="setting-label">提醒设置</label>
+            <div style="margin-top: 10px;">
+                <label style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <input type="checkbox" id="waterReminder" checked style="margin-right: 8px;">
+                    <span>💧 喝水提醒</span>
+                </label>
+                <label style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <input type="checkbox" id="restReminder" checked style="margin-right: 8px;">
+                    <span>👀 休息提醒</span>
+                </label>
+                <label style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <input type="checkbox" id="standReminder" checked style="margin-right: 8px;">
+                    <span>🚶‍♂️ 站立提醒</span>
+                </label>
+                <label style="display: flex; align-items: center;">
+                    <input type="checkbox" id="exerciseReminder" style="margin-right: 8px;">
+                    <span>🏃‍♂️ 运动提醒</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn btn-secondary" id="cancelBtn">取消</button>
+            <button class="btn btn-primary" id="saveBtn">保存</button>
+        </div>
+    </div>
+    
+    <script src="settings.js"></script>
+</body>
+</html>
